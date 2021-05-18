@@ -65,7 +65,7 @@ body {
 .main {
   width: 100%;
   max-width: 1770px;
-  margin: 0.95em;
+  margin: 0 auto;
 }
 
 .HomePage {
@@ -271,6 +271,7 @@ input [type="submit"],
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 .header__logo {

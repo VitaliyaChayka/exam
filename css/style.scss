@@ -66,7 +66,7 @@ body {
 .main {
 	width: 100%;
 	max-width: 1770px;
-	margin: 0.95em;
+	margin: 0 auto;
 }
 
 .HomePage{
@@ -201,6 +201,7 @@ text-align: center;
 	position: relative; 
 	position: sticky;
 	top: 0;
+	z-index: 100;
 
 &__logo{
 	font-size: 1.5em;
@@ -358,6 +359,7 @@ font-weight: 300;
 	position: relative;
 	top: -7em;
 }
+
 .client__block{
 	@media (max-width: 1024px) {
 margin: -3em  auto 10em;	}
