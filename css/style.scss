@@ -57,7 +57,6 @@ font-family:$font-main;
 }
 
 body {
-	margin: 0 auto;
 	font-size: 0.9em;
 	@media (max-width: 1024px) {
 		font-size: 12px;
@@ -83,7 +82,9 @@ body {
 	@media (max-width: 1024px) {
 		min-height: calc(70vh - 5.8em);
 	}
-	
+	@media (max-width: 768px) {
+		min-height: calc(60vh - 5.8em);
+	}
 }
 
 .container{
@@ -196,12 +197,11 @@ text-align: center;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	position: relative; 
 	position: sticky;
 	top: 0;
-	z-index: 100;
 
-&__logo{
+&__logo,
+.burger__label{
 	font-size: 1.5em;
 	letter-spacing: 2px;
 	line-height: 1.2;
@@ -213,19 +213,19 @@ text-align: center;
 }
 .nav {
 	position: absolute;
-        width: 100%;
         transition: all 0.3s ease;
 		transform: translateY(-180%);
+		width: 60%;
+		height: auto;
     
 &__list {
 	list-style: none;
 	display: flex;
 	justify-content: space-between;
 	padding: 0;
-	position: absolute;
-	top: -40px;
-	bottom: 0;
-
+	margin: 0 auto;
+	position: relative;
+	bottom: -10px;
 		@media (max-width: 780px) {
 		padding: 10px 0;
 		position: absolute;
@@ -250,30 +250,22 @@ transition: linear 0.2s;
 &:hover {
 	text-shadow: 0 2px 15px #fff;
 }
-@media (max-width: 780px) {
-	font-size: 1.2em;
-}
 }
 
 .nav__item{
-	margin: 10px;
+	margin: 0 15px;
 &:hover{
 	transform: scale(1.1);
 	transition: all .2s linear;
 }}
 .burger__label{
 	margin: 0 auto;
-	border: none;
-	background: none;
-	color: #fff;
-	font-family: $font-main;
-	font-size: 1.8em;
-	text-transform: uppercase;
-	outline: none;
-	display: none;
-	z-index: 20;
-	line-height: 0.1;
 	padding-left: 7em;
+	margin-top: 5px;
+	display: none;
+	cursor: pointer;
+	z-index: 1;
+
 	@media (max-width: 780px) {
 		display: block;
 	}
@@ -285,10 +277,15 @@ transition: linear 0.2s;
 }
 #burger{
 	opacity: 0;
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 5em;
 }
 .form__burger{
 position: absolute;
-bottom: 0;
+top: -15px;
+display: flex;
 }
 
 .header__container{
@@ -299,6 +296,10 @@ bottom: 0;
 	align-items:center;
 	width: 100%;
 	max-height: 100%;
+	margin: 0 auto;
+	position: relative; 
+
+
 }
 .header__block_logo{
 	width: 40%;
@@ -307,6 +308,45 @@ bottom: 0;
 .header__block_nav{
 	width: 60%;
 }
+
+/*
+.close{
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	color: #fff;
+}
+.nav{
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.3s ease-in;
+}
+.nav:target{
+	opacity: 1;
+	visibility: visible;
+}
+
+.nav__list > *:not(.close){
+	margin: 1em 0;
+}
+
+/*
+#burger:checked ~ .burger__label{
+	transform: rotate(45deg);}
+
+#burger:checked ~ .burger__label > span::before{
+		transform: rotate(0);
+		top:0;
+}
+#burger:checked ~ .burger__label > span::after{
+	transform: rotate(0);
+	top:0;
+}
+#burger:checked ~ .burger__label > nav__list{
+	opacity: 1;
+	left:0;
+}
+*/
 /* section CLIENTS*/
 
 .button_universal{
@@ -333,7 +373,7 @@ bottom: 0;
 	justify-content: space-between;
 	align-items: center;
 	@media (max-width:1024px) {
-		flex-direction: column;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	}
@@ -348,6 +388,7 @@ bottom: 0;
 margin: 2em auto;
 font-weight: 300;
 }
+
 .client__block_text{
 	@extend %text__block;
 	letter-spacing: 2px;
@@ -528,7 +569,7 @@ text-indent: 35px;}
 
 .block_review-text::before{
 	position: absolute;
-	top: 0.3em;
+	top: -1em;
 	left: -2.2em;
 	content: "\f10d";
 	padding-right: 10px;
